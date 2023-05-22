@@ -1,6 +1,6 @@
 # emoney_app
 
-A new Flutter project.
+A new Flutter project portofolio from Build With Angga class.
 
 ## Getting Started
 
