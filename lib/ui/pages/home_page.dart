@@ -339,8 +339,8 @@ class HomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: whiteColor,
             ),
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 HomeLatesTransactionItem(
                   iconUrl: 'assets/ic_topup_latest.png',
                   title: 'Top Up',
@@ -397,10 +397,10 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          SingleChildScrollView(
+          const SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: const [
+              children: [
                 HomeUserItem(
                   imageUrl: 'assets/img_friend1.png',
                   username: 'yuanita',
@@ -443,10 +443,10 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          Wrap(
+          const Wrap(
             spacing: 17,
             runSpacing: 18,
-            children: const [
+            children: [
               HomeTipsItem(
                 imageUrl: 'assets/img_tips1.png',
                 title: 'Best tips for using\na credit card',
