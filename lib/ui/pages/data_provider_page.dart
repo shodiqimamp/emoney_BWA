@@ -1,3 +1,4 @@
+import 'package:emoney_app/shared/shared_method.dart';
 import 'package:emoney_app/shared/theme.dart';
 import 'package:emoney_app/ui/widgets/button.dart';
 import 'package:emoney_app/ui/widgets/provider_item.dart';
@@ -53,7 +54,7 @@ class DataProviderPage extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    'Balance: Rp 180.000.000',
+                    'Balance: ${formatCurrency(18000000)}',
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                     ),

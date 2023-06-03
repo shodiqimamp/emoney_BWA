@@ -1,13 +1,16 @@
+import 'package:emoney_app/models/sign_up_form_model.dart';
 import 'package:emoney_app/shared/theme.dart';
 import 'package:emoney_app/ui/widgets/button.dart';
 import 'package:emoney_app/ui/widgets/form.dart';
 import 'package:flutter/material.dart';
 
 class SignUpSetProfilePage extends StatelessWidget {
-  const SignUpSetProfilePage({super.key});
+  final SignUpFormModel data;
+  const SignUpSetProfilePage({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
+    print(data.toJson());
     return Scaffold(
       backgroundColor: lightBgColor,
       body: ListView(
