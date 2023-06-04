@@ -16,7 +16,6 @@ class AuthFailed extends AuthState {
   const AuthFailed(this.e);
 
   @override
-  // TODO: implement props
   List<Object> get props => [e];
 }
 

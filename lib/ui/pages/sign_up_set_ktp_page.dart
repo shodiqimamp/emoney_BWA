@@ -1,9 +1,11 @@
+import 'package:emoney_app/models/sign_up_form_model.dart';
 import 'package:emoney_app/shared/theme.dart';
 import 'package:emoney_app/ui/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpSetKtpPage extends StatelessWidget {
-  const SignUpSetKtpPage({super.key});
+  final SignUpFormModel data;
+  const SignUpSetKtpPage({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

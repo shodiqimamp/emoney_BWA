@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:emoney_app/shared/theme.dart';
 import 'package:emoney_app/ui/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -15,24 +17,24 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: '0');
 
-  // @override
-  // void initState() {
-  //   super.initState();
+  @override
+  void initState() {
+    super.initState();
 
-  //   amountController.addListener(() {
-  //     final text = amountController.text;
+    amountController.addListener(() {
+      final text = amountController.text;
 
-  //     amountController.value = amountController.value.copyWith(
-  //       text: NumberFormat.currency(
-  //         locale: 'id',
-  //         decimalDigits: 0,
-  //         symbol: '',
-  //       ).format(
-  //         int.parse( text == '' ? 0 : text.replaceAll('.', ''))
-  //       ),
-  //     );
-  //   });
-  // }
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          decimalDigits: 0,
+          symbol: '',
+        ).format(
+          text == '' ? '0' : text.replaceAll('.', '').toString(),
+        ),
+      );
+    });
+  }
 
   addAmount(String number) {
     if (amountController.text == '0') {
@@ -48,9 +50,9 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
       setState(() {
         amountController.text = amountController.text
             .substring(0, amountController.text.length - 1);
-        // if(amountController.text. == ''){
-        //   amountController.text = '0';
-        // }
+        if (amountController.text == '') {
+          amountController.text = '0';
+        }
       });
     }
   }
@@ -208,8 +210,8 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
               if (await Navigator.pushNamed(context, '/pin') == true) {
                 await launchUrl(Uri.parse('https://demo.midtrans.com/'));
 
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/topup-success', (route) => false);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/topup-success', (route) => false);
               }
             },
           ),

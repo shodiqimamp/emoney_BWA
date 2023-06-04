@@ -31,7 +31,7 @@ class DataPackagePage extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          CustomFormField(
+          const CustomFormField(
             title: '+628',
             isShowTitle: false,
           ),
@@ -78,6 +78,7 @@ class DataPackagePage extends StatelessWidget {
             title: 'Continue',
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
+                // ignore: use_build_context_synchronously
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/data-success', (route) => false);
               }
