@@ -5,7 +5,7 @@ class UserModel {
   final String? username;
   final String? password;
   final int? verified;
-  final String? profielPicture;
+  final String? profilePicture;
   final int? balance;
   final String? cardNumber;
   final String? pin;
@@ -18,7 +18,7 @@ class UserModel {
     this.username,
     this.password,
     this.verified,
-    this.profielPicture,
+    this.profilePicture,
     this.balance,
     this.cardNumber,
     this.pin,
@@ -32,7 +32,7 @@ class UserModel {
         username: json['username'],
         // password: json['password'],
         verified: json['verified'],
-        profielPicture: json['profiel_picture'],
+        profilePicture: json['profile_picture'],
         balance: json['balance'],
         cardNumber: json['card_number'],
         pin: json['pin'],
@@ -56,7 +56,7 @@ class UserModel {
         pin: pin ?? this.pin,
         balance: balance ?? this.balance,
         verified: verified,
-        profielPicture: profielPicture,
+        profilePicture: profilePicture,
         cardNumber: cardNumber,
         token: token,
       );
