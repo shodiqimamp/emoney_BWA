@@ -1,4 +1,5 @@
 import 'package:emoney_app/blocs/auth/auth_bloc.dart';
+import 'package:emoney_app/blocs/user/user_bloc.dart';
 import 'package:emoney_app/shared/theme.dart';
 import 'package:emoney_app/ui/pages/data_package_page.dart';
 import 'package:emoney_app/ui/pages/data_provider_page.dart';
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthBloc()..add(AuthGetCurrentUser()),
+        ),
+        BlocProvider(
+          create: (context) => UserBloc(),
         ),
       ],
       child: MaterialApp(

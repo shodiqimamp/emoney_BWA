@@ -1,18 +1,13 @@
+import 'package:emoney_app/models/user_model.dart';
 import 'package:emoney_app/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 class TransferResultUserItem extends StatelessWidget {
-  final String imageUrl;
-  final String name;
-  final String userName;
-  final bool isVerified;
+  final UserModel user;
   final bool isSelected;
   const TransferResultUserItem({
     super.key,
-    required this.imageUrl,
-    required this.name,
-    required this.userName,
-    this.isVerified = false,
+    required this.user,
     this.isSelected = false,
   });
 
@@ -20,10 +15,10 @@ class TransferResultUserItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 155,
-      height: 175,
+      height: 185,
       padding: const EdgeInsets.symmetric(
         horizontal: 14,
-        vertical: 22,
+        vertical: 20,
       ),
       decoration: BoxDecoration(
         color: whiteColor,
@@ -36,17 +31,19 @@ class TransferResultUserItem extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 70,
-            height: 70,
+            width: 75,
+            height: 65,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: AssetImage(
-                  imageUrl,
-                ),
+                image: user.profilePicture == null
+                    ? const AssetImage(
+                        'assets/img_profile.png',
+                      )
+                    : NetworkImage(user.profilePicture!) as ImageProvider,
               ),
             ),
-            child: isVerified
+            child: user.verified == 1
                 ? Align(
                     alignment: Alignment.topRight,
                     child: Container(
@@ -71,14 +68,14 @@ class TransferResultUserItem extends StatelessWidget {
             height: 13,
           ),
           Text(
-            name,
+            user.name.toString(),
             style: blackTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium,
             ),
           ),
           Text(
-            userName,
+            '@${user.username}',
             style: greyTextStyle.copyWith(
               fontSize: 12,
             ),
